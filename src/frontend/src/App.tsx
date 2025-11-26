@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AuthProvider } from "@/context/AuthProvider";
-import ProtectedRoute from "./wrappers/ProtectedRoute";
 
 import Home from "./pages/Home"
 import Signup from "./pages/Signup";
@@ -8,6 +7,7 @@ import Listings from "./pages/Listings"
 import CreateListing from "./pages/Sell";
 import ListingDetail from "./pages/ListingDetail";
 import Login from "./pages/Login"
+import SearchResults from "./pages/Search";
 
 import Account from "./pages/accounts/Account";
 function App() {
@@ -22,6 +22,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/sell" element = {<CreateListing/>}/>
+            <Route path="/search-results" element={<SearchResults />} />
             <Route path="/account" element={<Account />} />
           </Routes>
         </BrowserRouter>

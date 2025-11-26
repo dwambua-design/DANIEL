@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import auth, listings, users, admin_users, sellers, chat, item_interactions
+from app.routers import auth, listings, users, admin_users, sellers, chat, item_interactions, search
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from fastapi.staticfiles import StaticFiles
@@ -30,5 +30,6 @@ app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(sellers.router, prefix="/sellers", tags=["Sellers"])
 app.include_router(chat.router, prefix="/chat", tags=["Chats"])
 app.include_router(item_interactions.router, prefix="/interactions", tags=["Item Interactions"])
+app.include_router(search.router, prefix="/search", tags=["Search"])    
 
 app.include_router(admin_users.router)

@@ -7,6 +7,8 @@ class SearchQuery(Base):
 
     id = Column(BigInteger, primary_key=True, index=True)
     user_id = Column(BigInteger, nullable=True)
-    query = Column(String(255), index=True)
+    query_text = Column(String(512), index=True, nullable=False)
+    category = Column(String(100), nullable=True)
+    location = Column(String(150), nullable=True)
     results_count = Column(Integer, default=0)
     created_at = Column(TIMESTAMP, server_default=func.now())
