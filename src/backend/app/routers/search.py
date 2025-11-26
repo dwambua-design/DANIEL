@@ -105,6 +105,20 @@ def popular_categories(db: Session = Depends(get_db)):
     return {"popular_categories": cat_list}
 
 
+@router.get("/categories")
+def list_categories(db: Session = Depends(get_db)):
+    categories = (
+        db.query(Listing.category)
+        .filter(Listing.category != None)
+        .group_by(Listing.category)
+        .all()
+    )
+
+    return {
+        "categories": [c for (c,) in categories]
+    }
+
+
 
 
 @router.get("/")
